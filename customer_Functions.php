@@ -10,4 +10,24 @@ function getALLCustomers($conn){
     
   return $result;
  }
+
+/*
+    Hämta en kund
+*/
+
+/*
+    spara kund
+*/ 
+
+/*
+    uppdatera kund
+*/
+
+/*
+    Radera kund
+*/
+
+/*
+    Utility function: Säkerhet HTML tecken
+*/
 ?>
