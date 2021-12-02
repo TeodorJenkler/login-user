@@ -22,7 +22,17 @@ function getALLCustomers($conn){
 /*
     uppdatera kund
 */
+function updateCustomer($conn){
+    $name = $_POST['txtName'];
+    $email = $_POST['txtEmail'];
+    $editId = $_POST['updateid'];
+    
+    $query = "UPDATE customer
+    SET customerName='$name', customerEmail = '$email'
+    WHERE customerID = "$editid";
 
+    $result = mysqli_query($conn, $query) or die("Query failed: $query");
+}
 /*
     Radera kund
 */
