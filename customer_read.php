@@ -18,4 +18,23 @@ $allCustomers = getALLCustomers($connection);
     <meta charset="utf-8"/>
     <title>Kunder</title>
   </head>
+  <body>
+   <h1>Kunder</h1>
+   <ul>
+       <?php
+        //Loop genom användare
+         while($row = mysqli_fetch_array($allCustomers){
+       ?>
+         <li>
+             <=php echo['customerName'];?>
+         </li>
+        <?php
+         }
+       ?>
+   </ul>
+   <?php
+          //Stänger databas
+          dbDisconnect($connection);
+   ?>
+  </body>
 </html>
