@@ -32,8 +32,8 @@ function getCustomerData($conn, $customerId){
     uppdatera kund
 */
 function updateCustomer($conn){
-    $name = $_POST['txtName'];
-    $email = $_POST['txtEmail'];
+    $name = escapeInsert($conn, $_POST['txtName']);
+    $email = escapeInsert($conn, $_POST['txtEmail']);
     $editId = $_POST['updateid'];
     
     $query = "UPDATE customer
@@ -46,9 +46,14 @@ function updateCustomer($conn){
     Radera kund
 */
 
+function deleteCustomer($conn, $customerId){
+    $query = "DELETE FROM customer WHERE customerId=". $customerId;
+    $result= mysqli_query($conn, $query) or die ("Query failed: $query");
+}
 /*
     Utility function: Säkerhet HTML tecken
 */
+
 function escapeInsert($conn, $insert){
     $insert = htmlspecialchars($insert);
     $insert = mysqli_real_escape_string($conn, $insert);
