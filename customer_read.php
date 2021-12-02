@@ -26,7 +26,7 @@ $allCustomers = getALLCustomers($connection);
          while($row = mysqli_fetch_array($allCustomers){
        ?>
          <li>
-             <=php echo['customerName'];?>
+             <=php echo['customerName'];?> <a href="customer_update.php?editid=<?php echo $row['customerId'];?>">Uppdatera</a>
          </li>
         <?php
          }
