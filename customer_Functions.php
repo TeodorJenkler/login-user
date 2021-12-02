@@ -14,6 +14,15 @@ function getALLCustomers($conn){
 /*
     Hämta en kund
 */
+function getCustomerData($conn, $customerId){
+    $query ="SELECT * FROM customer
+                      WHERE customerId=". $customerId;
+    $result = mysqli_query($conn, $query) or die ("Query failed: $query");
+
+    $row = mysqli_fetch_assoc($result);
+    
+    return $row;
+}
 
 /*
     spara kund
