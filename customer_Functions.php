@@ -27,7 +27,22 @@ function getCustomerData($conn, $customerId){
 /*
     spara kund
 */ 
-
+function saveCustomer($conn){
+    $date = date("Y.m.d H:i:s");
+    $name = escapeInsert($conn, $_POST['txtName']);
+    $email = escapeInsert($conn, $_POST['txtEmail']);
+    $password = escapeInsert($conn, $_POST['txtPassword']);
+    
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+    
+    $query = "INSERT INTO customer
+                (customerName, CustomerEmail, customerPassword, customerDate)
+                VALUES('$name', '$email', '$passwordHash', '$date');
+    $result = mysqli_query($conn, $query) or die ("Query failed $query");
+    $insId = mysqli_insert_id($conn);
+    
+    return $insId
+}
 /*
     uppdatera kund
 */
