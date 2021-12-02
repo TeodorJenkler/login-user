@@ -20,6 +20,7 @@ $allCustomers = getALLCustomers($connection);
   </head>
   <body>
    <h1>Kunder</h1>
+   <p><a href="customer_create.php">Lägg till ny kund</a></p>
    <ul>
        <?php
         //Loop genom användare
