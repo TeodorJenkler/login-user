@@ -10,8 +10,13 @@ $connection = dbConnect();
 // Ska kund ändras?
 
 if(isset($_GET['editid']) && $_GET['editid']>0){
-  $customerData = 
+  $customerData = getCustomerData($connection, $_GET['editid']);
 }
+// ska kunden uppdateras?
+if(isset($_POST['updateid']) && $_POST['updateid']>0)
+  updateCustomer($connection);
+
+  header("Location: customer_update.php?editid=". $_POST['updateid']);
 ?>
 
 <!DOCTYPE HTML>
@@ -23,6 +28,19 @@ if(isset($_GET['editid']) && $_GET['editid']>0){
      <h1>Updattera kund</h1>
      
      <form action="customer_update.php" mehtod="post">
-        <input type="hidden name="updateid" value="<?php echo $customerData['customerID']; ?>">
+        <input type="hidden" name="updateid" value="<?php echo $customerData['customerID']; ?>">
         
+        <label>Namn</label>
+        <p><input type="text" name="txtName" value="<?php echo $customerData['customerName']; ?>"></p>
+                                                                                                 
+        <label>Email</label>
+        <p><input type="text" name="txtEmail" value="<?php echo $customerData['customerEmail']; ?>"></p>
+                                                                                                   
+        <p><input type="submit" value="Uppdatera"></p>
+       </form>
+     <?php
+     // stänger Databasen
+     dbDisconnect($connection);
+     ?>
    </body>
+</html>
