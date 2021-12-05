@@ -1,7 +1,7 @@
 <?php 
 
 session_start();
-if($_SESSION['status'] != "ok"){
+if(!isset($_SESSION['status']) || $_SESSION['status'] != "ok"){
   header("Location: index.php");
 }
 // Inkludera filer för databas och funktioner
