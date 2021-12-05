@@ -1,5 +1,9 @@
 <?php 
 
+session_start();
+if($_SESSION['status'] != "ok"){
+  header("Location: index.php");
+}
 // Inkludera filer för databas och funktioner
 require("includes/conn_mysql.php");
 require("includes/customer_functions.php")
