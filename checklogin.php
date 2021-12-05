@@ -18,7 +18,7 @@ session_start();
     $count = mysqli_num_rows($result);
     
     if(count == 1){
-      if(password_check($checkPassword, $row["customerPassword"])){
+      if(password_verify($checkPassword, $row["customerPassword"])){
         $_SESSION['status'] = "ok";
         header("Location: customer_read.php");
       }
