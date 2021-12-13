@@ -5,6 +5,7 @@
     <title>Kunder Logga In</title>
   </head>
   <body>
+    <div>
     <form action="checklogin.php" method="post">
       <h1>Logga In</h1>
        
@@ -14,5 +15,6 @@
       <p><input type="password" name="txtPassword"></p>
       <p><input type="submit" value="Logga in"></p>
     </form>
+    </div>
   </body>
 </html>
